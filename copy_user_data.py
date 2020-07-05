@@ -34,15 +34,14 @@ if SUBREDDITS:
     # filter the nsfw subreddits
     nsfw = list(filter(filter_nsfw_subreddits, subreddits_old))
 
-    subreddit_list = list()
+    # by default it is going to copy everything over
+    subreddit_list = subreddits_old
 
     # determine what to subscribe to based on content_type
     if CONTENT_TYPE == 0:   # NSFW content only
         subreddit_list = nsfw
     elif CONTENT_TYPE == 1: # SFW only
         subreddit_list = [x for x in subreddits_old if x not in nsfw]
-    else:                   # Both content type
-        subreddit_list = subreddits_old
 
 
     # subscribe to the subreddits
@@ -75,7 +74,16 @@ if SAVED:
 
     nsfw_posts = list(filter(filter_nsfw_posts, saved_posts))
 
-    for post in nsfw_posts:
+    # by default it is going to copy everything over
+    posts_list = saved_posts
+
+    # determine what to save to based on content_type
+    if CONTENT_TYPE == 0:  # NSFW content only
+        posts_list = nsfw_posts
+    elif CONTENT_TYPE == 1:  # SFW only
+        posts_list = [x for x in saved_posts if x not in nsfw_posts]
+
+    for post in posts_list:
         # Use a try except block in case there is some trouble saving a post
         try:
             new_account.submission(id=post.id).save()
