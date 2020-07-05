@@ -23,7 +23,7 @@ A secure way of doing this would be to follow the above instructions for both yo
 Continuing from the above step, fill in the credentials for your Reddit accounts under `[new_account]` and `[old_account]` sites.
 
 ## Configuring
-Now you are all set to start migrating your data!
+Now you are all set to start configuring your migration!
 
 This script provides the option to copy either your subscribed subreddits or your friends or your saved posts or all of these things if you wish. If you look in your `praw.ini` file, you will see the following:
 ```
@@ -48,7 +48,7 @@ content_type=1
 ```
 
 ## Usage
-Now you are ready to start configuring the migration of your old data to your new Reddit account! Simply open a terminal and navigate to the script's directory. Make sure that `praw.ini` file is in the same directory as the script. Execute the following command:
+Now you are ready to start the migration of your old data to your new Reddit account! Simply open a terminal and navigate to the script's directory. Make sure that `praw.ini` file is in the same directory as the script. Execute the following command:
 ```
 $ python3 copy_user_data.py 
 ```
