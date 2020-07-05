@@ -48,7 +48,7 @@ content_type=1
 ```
 
 ## Usage
-Now you are ready to start the migration of your old data to your new Reddit account! Simply open a terminal and navigate to the script's directory. Make sure that `praw.ini` file is in the same directory as the script. Execute the following command:
+Now you are ready to start configuring the migration of your old data to your new Reddit account! Simply open a terminal and navigate to the script's directory. Make sure that `praw.ini` file is in the same directory as the script. Execute the following command:
 ```
 $ python3 copy_user_data.py 
 ```
