@@ -14,7 +14,7 @@ SAVED = new_account.config.custom['copy_saved_posts'] == 'on'
 #  1 => SFW only
 #  2 => NSFW + SFW
 #
-# This setting applies to subreddits, friends and saved posts
+# This setting applies to subreddits and saved posts
 CONTENT_TYPE = int(new_account.config.custom['content_type'])
 
 def filter_nsfw_subreddits(subreddit):
@@ -22,7 +22,6 @@ def filter_nsfw_subreddits(subreddit):
 
 def filter_nsfw_posts(post):
     return post.over_18
-
 
 
 # ====================================================================================
