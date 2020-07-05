@@ -13,11 +13,11 @@ To get started, you are going to need a few things:
 To install PRAW, please follow the instructions given [here](https://github.com/praw-dev/praw#installation)
 
 ### Client_id and Client_secret
-client_id and client_secret are used to authorize this script to alter accounts and interact with Reddit's API. You can follow the instructions [here](https://redditclient.readthedocs.io/en/latest/oauth/) or [here](https://github.com/reddit-archive/reddit/wiki/OAuth2-Quick-Start-Example) to generate these 2 pieces of information. Take note of these 2 pieces of info.
+client_id and client_secret are used to authorize this script to alter accounts and interact with Reddit's API. You can follow the instructions [here](https://redditclient.readthedocs.io/en/latest/oauth/) or [here](https://github.com/reddit-archive/reddit/wiki/OAuth2-Quick-Start-Example) to generate these 2 pieces of information for both the accounts. Take note of these 2 pieces of info on both your accounts.
 
-Open up the `praw_sample.ini` file after renaming it to `praw.ini`. Fill in the `client_id` and `client_secret` fields under the `[DEFAULT]` site. 
+Rename `praw_sample.ini` to `praw.ini`. Fill in the `client_id` and `client_secret` fields under the `[new_account]` and `[old_account]` sites with the corresponsing pieces of information. 
 
-A secure way of doing this would be to follow the above instructions for both your accounts and copy the 4 pieces on info and add them to the `praw.ini` file. A less secure way is to use one set of keys and add your other account as a "Developer" on the script.
+A less secure way is to use one set of keys and add your other account as a "Developer" on the script.
 
 ### Reddit Accounts
 Continuing from the above step, fill in the credentials for your Reddit accounts under `[new_account]` and `[old_account]` sites.
