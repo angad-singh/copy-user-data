@@ -9,6 +9,12 @@ old_account = praw.Reddit("old_account")
 SUBREDDITS = new_account.config.custom['copy_subreddits'] == 'on'
 FRIENDS = new_account.config.custom['copy_friends'] == 'on'
 SAVED = new_account.config.custom['copy_saved_posts'] == 'on'
+# Content Types:
+#  0 => NSFW only
+#  1 => SFW only
+#  2 => NSFW + SFW
+#
+# This setting applies to subreddits, friends and saved posts
 CONTENT_TYPE = int(new_account.config.custom['content_type'])
 
 def filter_nsfw_subreddits(subreddit):
@@ -28,8 +34,19 @@ if SUBREDDITS:
     # filter the nsfw subreddits
     nsfw = list(filter(filter_nsfw_subreddits, subreddits_old))
 
+    subreddit_list = list()
+
+    # determine what to subscribe to based on content_type
+    if CONTENT_TYPE == 0:   # NSFW content only
+        subreddit_list = nsfw
+    elif CONTENT_TYPE == 1: # SFW only
+        subreddit_list = [x for x in subreddits_old if x not in nsfw]
+    else:                   # Both content type
+        subreddit_list = subreddits_old
+
+
     # subscribe to the subreddits
-    for subreddit in nsfw:
+    for subreddit in subreddit_list:
         new_account.subreddit(subreddit.display_name).subscribe()
         print("Subscribed to " + subreddit.display_name)
 
