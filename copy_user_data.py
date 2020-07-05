@@ -28,10 +28,13 @@ def filter_nsfw_posts(post):
 # copy over the subreddits
 print("Copy over subreddits: " + str(SUBREDDITS))
 if SUBREDDITS:
+    print("Fetching subreddits...")
     subreddits_old = list(old_account.user.subreddits(limit=None))
 
     # filter the nsfw subreddits
     nsfw = list(filter(filter_nsfw_subreddits, subreddits_old))
+
+    print("Found " + str(len(subreddits_old)) + " subreddits including " + str(len(nsfw)) + " nsfw subreddits")
 
     # by default it is going to copy everything over
     subreddit_list = subreddits_old
@@ -54,7 +57,9 @@ if SUBREDDITS:
 # list(new_account.redditors.search('username'))[0].friend()
 print("Copy over friends: " + str(FRIENDS))
 if FRIENDS:
+    print("Fetching friends...")
     friends = list(old_account.user.friends())
+    print("Found " + str(len(friends)) + " friends")
 
     for friend in friends:
         person_list = list(new_account.redditors.search(friend.name))
@@ -69,9 +74,12 @@ if FRIENDS:
 # new_account.submission(id=post.id).save()
 print("Copy over saved posts: " + str(SAVED))
 if SAVED:
+    print("Fetching saved posts...")
     saved_posts = list(old_account.user.me().saved(limit=None))
 
     nsfw_posts = list(filter(filter_nsfw_posts, saved_posts))
+
+    print("Found " + str(len(saved_posts)) + " saved posts including " + str(len(nsfw_posts)) + " nsfw saved posts")
 
     # by default it is going to copy everything over
     posts_list = saved_posts
