@@ -10,7 +10,11 @@ To get started, you are going to need a few things:
 - client_id and client_secret
 
 ### Installing PRAW
-To install PRAW, please follow the instructions given [here](https://github.com/praw-dev/praw#installation)
+To install PRAW, run the following command in your terminal
+```
+pip3 install -r requirements.txt
+```
+You can manually install PRAW by following the instructions given [here](https://github.com/praw-dev/praw#installation)
 
 ### Client_id and Client_secret
 client_id and client_secret are used to authorize this script to alter accounts and interact with Reddit's API. You can follow the instructions [here](https://redditclient.readthedocs.io/en/latest/oauth/) or [here](https://github.com/reddit-archive/reddit/wiki/OAuth2-Quick-Start-Example) to generate these 2 pieces of information for both the accounts. Take note of these 2 pieces of info on both your accounts.
